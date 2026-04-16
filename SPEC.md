@@ -35,8 +35,8 @@ A custom mechanical keyboard with a detachable wireless macropad, dual RGB OLED 
 - **Range**: ~10m line of sight
 
 ### Display
-- **Type**: 1.3" RGB OLED (full color)
-- **Driver**: SSD1327 or ST7789 (TFT alternative)
+- **Type**: 1.3" Monochrome OLED (white)
+- **Driver**: SSD1327
 - **Resolution**: 128x128 pixels
 - **Interface**: SPI
 
@@ -72,7 +72,7 @@ A custom mechanical keyboard with a detachable wireless macropad, dual RGB OLED 
 - **Module**: nRF24L01+ (same as main)
 
 ### Display
-- **Type**: 1.3" RGB OLED (same as main)
+- **Type**: 1.3" Monochrome OLED (same as main)
 - **Position**: Top of macropad
 
 ### Power

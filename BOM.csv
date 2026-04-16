@@ -1,7 +1,7 @@
 Reference,Value,Package,Quantity_Main,Quantity_Macro,Quantity_Dongle,Supplier,Part Number,Notes
 U1,RP2040,QFN-56,1,1,1,LCSC,W25Q128JVSIM,or similar RP2040 module
-U2,nRF24L01+,Module,1,1,1,LCSC,nRF24L01+PA-LNA,PA/LNA version
-U3,ST7789 OLED,1.3" RGB,1,1,,LCSC,ST7789 1.3",SPI interface
+U2,nRF24L01+ PA/LNA,Module (PCB antenna),1,1,1,LCSC,nRF24L01+PA-LNA,PA/LNA with PCB antenna (no external SMA)
+U3,SSD1327 OLED,1.3" Monochrome,1,1,,LCSC,SSD1327 1.3",SPI interface
 U4,TP4056,SOT-26,1,1,,LCSC,TP4056,USB-C charger IC
 U5,AMS1117-3.3,SOT-223,1,1,1,LCSC,AMS1117-3.3,3.3V regulator
 C1,10uF,0805,2,2,2,LCSC,GRM21BR61A106,Power filtering

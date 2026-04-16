@@ -1,7 +1,7 @@
 LCSC Part Number,Part Name,Package,Value,Quantity,Description,Position
 C8050,RP2040,QFN-56,RP2040,1,Microcontroller,Main+Macro
-C29120,nRF24L01+PA-LNA,Module,nRF24L01+,1,2.4GHz Wireless Module,Main+Macro+Dongle
-C5199716,ST7789V,Module,1.3" OLED,1,1.3" RGB OLED Display SPI,Main+Macro
+C29120,nRF24L01+PA-LNA,Module,nRF24L01+,1,2.4GHz Wireless Module (PCB antenna),Main+Macro+Dongle
+C5199716,SSD1327,Module,1.3" OLED,1,1.3" Monochrome OLED Display SPI,Main+Macro
 C2280,TP4056,SOT-26,TP4056,1,LiPo Charger IC,Main+Macro
 C8550,AMS1117-3.3,SOT-223,3.3V,1,Linear Regulator 3.3V,Main+Macro+Dongle
 C15221,GRM21BR61A106KE15,0805,10uF,2,MLCC 10uF 25V X5R,Power
