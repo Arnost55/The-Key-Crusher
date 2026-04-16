@@ -1,0 +1,40 @@
+# KiCad
+*.pro
+*.sch
+*.kicad_pcb
+*.kicad_mod
+*.net
+*.cache
+*.bck
+*.tmp
+*.log
+
+# Gerbers
+*.gbr
+*.gbs
+*.gbo
+*.gtl
+*.gbl
+*.gbs
+*.gbo
+*.drl
+*.pos
+*.cmp
+*.edge_cuts.gbr
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Build files
+*.elf
+*.hex
+*.bin
+build/
+out/
+
+# Secrets
+*.env
+secrets.json
