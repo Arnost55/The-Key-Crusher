@@ -25,8 +25,9 @@ A custom mechanical keyboard with a detachable wireless macropad, dual RGB OLED 
 - **Recommended switches**: Gateron Milky Yellow (linear), Gateron Brown (tactile)
 
 ### Microcontroller
-- **Primary**: Raspberry Pi RP2040 (for QMK/VIA compatibility)
-- **Alternative**: nRF52840 (if using built-in Bluetooth)
+- **Primary**: RP2040 Plus Module (Waveshare or equivalent)
+- **Features**: Pre-assembled with USB-C, 3.3V regulator, crystal, 8MB flash
+- **Notes**: Uses dev board module instead of bare chip for easier assembly
 
 ### Wireless Module
 - **Module**: nRF24L01+ PA/LNA variant
@@ -47,9 +48,9 @@ A custom mechanical keyboard with a detachable wireless macropad, dual RGB OLED 
 - **Estimated battery life**: 20-30 hours (without RGB, depends on usage)
 
 ### Connection (Docked Macropad)
-- **Connector**: 4-pin pogo pins
-- **Pinout**: VCC, GND, D+, D- (or UART TX/RX for data)
-- **Data**: Serial communication to macropad
+- **Connector**: 6-pin magnetic waterproof connector (pre-made)
+- **Pinout**: VBUS, GND, TX, RX, D+, D-
+- **Data**: UART serial communication to macropad when docked
 
 ---
 
@@ -66,7 +67,7 @@ A custom mechanical keyboard with a detachable wireless macropad, dual RGB OLED 
 - **Key count**: 9 keys (3x3)
 
 ### Microcontroller
-- **MCU**: RP2040 (same as main for firmware consistency)
+- **MCU**: RP2040 Plus Module (same as main)
 
 ### Wireless Module
 - **Module**: nRF24L01+ (same as main)
@@ -81,7 +82,7 @@ A custom mechanical keyboard with a detachable wireless macropad, dual RGB OLED 
 - **Estimated battery life**: 15-20 hours
 
 ### Connection (to Main Keyboard)
-- **When docked**: 4-pin pogo pins, data tunnels through main keyboard
+- **When docked**: 6-pin magnetic connector, UART data tunnels through main keyboard
 - **When undocked**: Independent wireless to dongle
 
 ---
@@ -118,37 +119,49 @@ PC → Dongle → Macropad (direct)
 
 ---
 
-## PCB Pinouts (RP2040)
+## PCB Pinouts (RP2040 Plus Module)
 
 ### Main Keyboard
 | Function | GPIO Pin |
 |----------|----------|
-| Matrix Row 0 | GP0 |
-| Matrix Row 1 | GP1 |
-| Matrix Row 2 | GP2 |
-| Matrix Row 3 | GP3 |
-| Matrix Row 4 | GP4 |
-| Matrix Col 0 | GP5 |
-| Matrix Col 1 | GP6 |
-| Matrix Col 2 | GP7 |
-| Matrix Col 3 | GP8 |
-| Matrix Col 4 | GP9 |
-| OLED CS | GP10 |
-| OLED DC | GP11 |
-| OLED RST | GP12 |
-| OLED MOSI | GP13 |
-| OLED SCK | GP14 |
-| nRF24 CE | GP15 |
-| nRF24 CSN | GP16 |
-| nRF24 IRQ | GP17 |
-| nRF24 MOSI | GP18 |
-| nRF24 MISO | GP19 |
-| nRF24 SCK | GP20 |
-| USB D+ | GP22 |
-| USB D- | GP23 |
-| Pogo TX | GP26 |
-| Pogo RX | GP27 |
-| Battery ADC | GP28 |
+| Matrix Row 8 | GP0 |
+| Matrix Row 9 | GP1 |
+| Matrix Row 10 | GP2 |
+| Matrix Row 11 | GP3 |
+| Matrix Row 12 | GP4 |
+| Matrix Row 13 | GP5 |
+| Matrix Col 0 | GP6 |
+| Matrix Col 1 | GP7 |
+| Matrix Col 2 | GP8 |
+| Matrix Col 3 | GP9 |
+| Matrix Col 4 | GP10 |
+| nRF24 MOSI | GP11 |
+| nRF24 MISO | GP12 |
+| nRF24 SCK | GP13 |
+| nRF24 CE | GP14 |
+| nRF24 CSN | GP15 |
+| OLED CS | GP16 |
+| OLED DC | GP17 |
+| OLED RST | GP18 |
+| Magnetic TX | GP19 |
+| Magnetic RX | GP22 |
+| I2C SCL (PCF8574) | GP23 |
+| I2C SDA (PCF8574) | GP24 |
+| Battery ADC | GP25 |
+| USB 5V from module | For TP4056 charging |
+| 3V3 from module | For nRF24L01+, OLED |
+
+**PCF8574 GPIO Expander (I2C address 0x20)**
+| Function | Expander Pin |
+|----------|--------|
+| Matrix Row 0 | P0 |
+| Matrix Row 1 | P1 |
+| Matrix Row 2 | P2 |
+| Matrix Row 3 | P3 |
+| Matrix Row 4 | P4 |
+| Matrix Row 5 | P5 |
+| Matrix Row 6 | P6 |
+| Matrix Row 7 | P7 |
 
 ### Macropad
 | Function | GPIO Pin |
@@ -162,17 +175,18 @@ PC → Dongle → Macropad (direct)
 | OLED CS | GP6 |
 | OLED DC | GP7 |
 | OLED RST | GP8 |
-| OLED MOSI | GP9 |
-| OLED SCK | GP10 |
+| OLED MOSI (shared SPI) | GP9 |
+| OLED SCK (shared SPI) | GP10 |
 | nRF24 CE | GP11 |
 | nRF24 CSN | GP12 |
-| nRF24 IRQ | GP13 |
-| nRF24 MOSI | GP14 |
-| nRF24 MISO | GP15 |
-| nRF24 SCK | GP16 |
-| USB D+ | GP18 |
-| USB D- | GP19 |
-| Battery ADC | GP20 |
+| nRF24 MISO | GP13 |
+| nRF24 MOSI (shared SPI) | GP14 |
+| nRF24 SCK (shared SPI) | GP15 |
+| Magnetic TX | GP16 |
+| Magnetic RX | GP17 |
+| Battery ADC | GP18 |
+| USB 5V from module | For TP4056 charging |
+| 3V3 from module | For nRF24L01+, OLED |
 
 ---
 
